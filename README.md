@@ -78,7 +78,16 @@ pip install -r requirements.txt
 ```
 > **说明：** 这会安装项目运行所需的所有依赖（包括 CosyVoice 的支持库），可能需要 10 分钟左右。
 
-### 步骤 6：配置 CosyVoice TTS（推荐）
+### 步骤 6：安装 FFmpeg（必需）
+
+FFmpeg 用于音频格式转换，是系统运行所必需的。
+
+双击运行 `setup_ffmpeg.bat`
+*   脚本会自动从 GitHub 下载 FFmpeg（约 180MB）
+*   下载完成后会自动解压并安装到 `tools/ffmpeg/` 目录
+*   **注意：** 如果已存在 FFmpeg，脚本会跳过下载
+
+### 步骤 7：配置 CosyVoice TTS（推荐）
 
 如果需要高质量语音合成，请执行以下两步：
 
@@ -94,7 +103,7 @@ pip install -r requirements.txt
     *   输入 `2`：**HuggingFace**（海外推荐）
 *   它会自动下载 2 个核心模型（Fun-CosyVoice3-0.5B 和 CosyVoice2-0.5B）。
 
-### 步骤 7：配置环境变量
+### 步骤 8：配置环境变量
 
 1. 在 `backend` 目录下，复制 `.env.example` 为 `.env`，或者新建 `.env` 文件。
 2. 填入以下内容：
@@ -111,7 +120,7 @@ COSYVOICE_USE_SFT=false
 COSYVOICE_SPEAKER_ID=中文女
 ```
 
-### 步骤 8：启动后端服务
+### 步骤 9：启动后端服务
 
 在 `backend` 目录下（确保 `(venv)` 已激活）：
 ```bash
@@ -119,7 +128,7 @@ python -m app.main
 ```
 看到 `Uvicorn running on http://0.0.0.0:8000` 表示成功。**请保持此窗口开启。**
 
-### 步骤 9：启动前端界面
+### 步骤 10：启动前端界面
 
 1. 打开新的命令行窗口。
 2. 进入前端目录并安装依赖：
@@ -166,5 +175,6 @@ python -m app.main
 
 ## 📝 脚本说明
 
+*   `setup_ffmpeg.bat`: 下载并安装 FFmpeg（音频格式转换工具，必需）。
 *   `setup_cosyvoice.bat`: 仅克隆 CosyVoice 代码库。
 *   `download_models.bat`: 下载预训练模型（仅保留了最常用的两个模型）。
