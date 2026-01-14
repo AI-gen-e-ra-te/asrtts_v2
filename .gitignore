@@ -48,4 +48,8 @@ Thumbs.db
 .idea/
 .vscode/
 *.swp
-/backend/pretrained_models
+# 大文件和预训练模型
+pretrained_models/
+backend/tools/ffmpeg/ffmpeg.exe
+*.bin
+*.exe
